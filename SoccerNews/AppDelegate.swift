@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         let rootViewController = FeedsController()
-        window?.rootViewController = rootViewController
+        window?.rootViewController = UINavigationController(rootViewController: rootViewController)
         
         return true
     }

@@ -7,47 +7,6 @@
 
 import UIKit
 
-var imageCache: [String: UIImage] = [:]
-
-class CustomImageView: UIImageView {
-    
-    var lastURLUsedLoadImage: String?
-    
-    func loadImage(urlString: String) {
-        lastURLUsedLoadImage = urlString
-        
-        self.image = nil
-        
-        if let cachedImage = imageCache[urlString] {
-            self.image = cachedImage
-            return
-        }
-        
-        guard let url = URL(string: urlString) else { return }
-        
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print("Failed to fetch feed image:", error)
-                return
-            }
-            
-            if url.absoluteString != self.lastURLUsedLoadImage {
-                return
-            }
-            
-            guard let imageData = data else { return }
-            
-            let image = UIImage(data: imageData)
-            imageCache[url.absoluteString] = image
-            
-            DispatchQueue.main.async {
-                self.image = image
-            }
-        }
-        task.resume()
-    }
-}
-
 class FeedCell: UITableViewCell {
     
     var article: Article? {
@@ -74,6 +33,7 @@ class FeedCell: UITableViewCell {
     
     private let feedImageView: CustomImageView = {
         let iv = CustomImageView()
+        iv.backgroundColor = .lightGray
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.layer.cornerRadius = 4
@@ -101,7 +61,6 @@ class FeedCell: UITableViewCell {
     private let feedSorceNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.white
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         label.numberOfLines = 1
@@ -172,7 +131,7 @@ class FeedCell: UITableViewCell {
         // GET => api field = publishedAt: 2021-03-09T19:00:00Z
         formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
         
-        guard let date = formatter.date(from: dateString) else { return "" }
+        guard let date = formatter.date(from: dateString) else { return "Failed to convert date." }
         return date.timeAgo()
     }
 }
