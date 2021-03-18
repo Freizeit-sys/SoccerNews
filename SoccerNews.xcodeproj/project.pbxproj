@@ -32,6 +32,8 @@
 		840C6F9526016FC500FB7F0C /* Statuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840C6F9426016FC500FB7F0C /* Statuses.swift */; };
 		840C6F9A2601701100FB7F0C /* ErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840C6F992601701100FB7F0C /* ErrorCodes.swift */; };
 		84628BD32603BA99004C2BB1 /* PreviewImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84628BD22603BA99004C2BB1 /* PreviewImageController.swift */; };
+		84628BD826041776004C2BB1 /* PreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84628BD726041776004C2BB1 /* PreviewImageView.swift */; };
+		84628BE026041A37004C2BB1 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84628BDF26041A37004C2BB1 /* UIColor+Extensions.swift */; };
 		84AE86A0260288B500E9AAC7 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE869F260288B500E9AAC7 /* CustomImageView.swift */; };
 		84AE86BD2602A45800E9AAC7 /* FeedsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840C6F2A26001DE700FB7F0C /* FeedsController.swift */; };
 		84AE86C32602A4C500E9AAC7 /* TopFeedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE86C22602A4C500E9AAC7 /* TopFeedHeaderView.swift */; };
@@ -94,6 +96,8 @@
 		840C6F9426016FC500FB7F0C /* Statuses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statuses.swift; sourceTree = "<group>"; };
 		840C6F992601701100FB7F0C /* ErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCodes.swift; sourceTree = "<group>"; };
 		84628BD22603BA99004C2BB1 /* PreviewImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageController.swift; sourceTree = "<group>"; };
+		84628BD726041776004C2BB1 /* PreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageView.swift; sourceTree = "<group>"; };
+		84628BDF26041A37004C2BB1 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		84AE869F260288B500E9AAC7 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		84AE86A4260288D200E9AAC7 /* TopFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopFeedCell.swift; sourceTree = "<group>"; };
 		84AE86AF2602A30700E9AAC7 /* FeedsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsView.swift; sourceTree = "<group>"; };
@@ -212,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				840C6F402600E76900FB7F0C /* UIView+Extensions.swift */,
+				84628BDF26041A37004C2BB1 /* UIColor+Extensions.swift */,
 				840C6F4B2600ED8F00FB7F0C /* Date+Extensions.swift */,
 			);
 			path = Utils;
@@ -249,6 +254,7 @@
 				84AE86AF2602A30700E9AAC7 /* FeedsView.swift */,
 				84AE86D82602E75600E9AAC7 /* FeedDetailView.swift */,
 				84AE869F260288B500E9AAC7 /* CustomImageView.swift */,
+				84628BD726041776004C2BB1 /* PreviewImageView.swift */,
 				84AE86C12602A4B400E9AAC7 /* HeaderViews */,
 				84AE86B52602A32800E9AAC7 /* Cells */,
 			);
@@ -542,11 +548,13 @@
 				840C6F412600E76900FB7F0C /* UIView+Extensions.swift in Sources */,
 				840C6F3026001E7800FB7F0C /* NewsRepository.swift in Sources */,
 				840C6F6F26016F3E00FB7F0C /* EverythingRequest.swift in Sources */,
+				84628BE026041A37004C2BB1 /* UIColor+Extensions.swift in Sources */,
 				840C6F8D26016FA100FB7F0C /* SortBys.swift in Sources */,
 				84AE86C32602A4C500E9AAC7 /* TopFeedHeaderView.swift in Sources */,
 				840C6F6A26016F2300FB7F0C /* Source.swift in Sources */,
 				84AE86A0260288B500E9AAC7 /* CustomImageView.swift in Sources */,
 				840C6F6526016F1000FB7F0C /* Article.swift in Sources */,
+				84628BD826041776004C2BB1 /* PreviewImageView.swift in Sources */,
 				840C6F7426016F4C00FB7F0C /* TopHeadlinesRequest.swift in Sources */,
 				840C6F4C2600ED8F00FB7F0C /* Date+Extensions.swift in Sources */,
 				84AE86D92602E75600E9AAC7 /* FeedDetailView.swift in Sources */,

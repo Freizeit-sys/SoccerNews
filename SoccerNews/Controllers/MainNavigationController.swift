@@ -17,7 +17,7 @@ class MainNavigationController: UINavigationController {
     }
     
     private func setupNavigationBar() {
-        navigationBar.barTintColor = UIColor.secondarySystemBackground
+        navigationBar.barTintColor = UIColor.scheme.background
         navigationBar.isTranslucent = false
     }
     

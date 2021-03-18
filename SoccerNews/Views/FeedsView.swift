@@ -11,15 +11,14 @@ class FeedsView: UIView {
     
     private let spinner: UIActivityIndicatorView = {
         let aiv = UIActivityIndicatorView(style: .large)
-        aiv.color = UIColor.lightGray
+        aiv.color = UIColor.secondaryLabel
         aiv.hidesWhenStopped = true
         return aiv
     }()
     
     public let tableView: UITableView = {
         let tv = UITableView(frame: .zero, style: .grouped)
-        tv.translatesAutoresizingMaskIntoConstraints = false
-        tv.backgroundColor = UIColor.secondarySystemBackground
+        tv.backgroundColor = .clear
         tv.tableFooterView = UIView(frame: .zero)
         tv.separatorStyle = .singleLine
         tv.automaticallyAdjustsScrollIndicatorInsets = false

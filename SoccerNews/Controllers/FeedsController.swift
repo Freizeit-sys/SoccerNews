@@ -40,6 +40,7 @@ class FeedsController: UIViewController {
         super.viewDidLoad()
         
         self.title = "Soccer News"
+        self.view.backgroundColor = UIColor.scheme.background
         
         self.setupTableView()
         
@@ -124,6 +125,7 @@ extension FeedsController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerId) as! TopFeedHeaderView
+        headerView.tintColor = .clear
         return headerView
     }
     

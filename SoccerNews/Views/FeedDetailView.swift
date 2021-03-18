@@ -55,7 +55,7 @@ class FeedDetailView: UIView {
     
     private let feedTitleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.label
+        label.textColor = UIColor.scheme.label
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.numberOfLines = .max
@@ -74,6 +74,7 @@ class FeedDetailView: UIView {
     
     private let feedSorceNameLabel: UILabel = {
         let label = UILabel()
+        label.textColor = UIColor.scheme.label
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         label.numberOfLines = 1
@@ -82,7 +83,7 @@ class FeedDetailView: UIView {
     
     private let feedAuthorLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .lightGray
+        label.textColor = UIColor.scheme.secondaryLabel
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         label.numberOfLines = 1
@@ -92,7 +93,7 @@ class FeedDetailView: UIView {
     private let feedTimeAgoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.lightGray
+        label.textColor = UIColor.scheme.secondaryLabel
         label.textAlignment = .right
         label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         label.numberOfLines = 1
@@ -101,7 +102,6 @@ class FeedDetailView: UIView {
     
     private let feedImageView: CustomImageView = {
         let iv = CustomImageView()
-        iv.backgroundColor = .lightGray
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.isUserInteractionEnabled = true
@@ -110,7 +110,7 @@ class FeedDetailView: UIView {
     
     private let feedDescriptionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.label
+        label.textColor = UIColor.scheme.label
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         label.numberOfLines = .zero

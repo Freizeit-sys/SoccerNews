@@ -21,7 +21,7 @@ class FeedDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .secondarySystemBackground
+        view.backgroundColor = UIColor.scheme.background
         
         self.v.feed = self.feed
         self.v.delegate = self
@@ -66,7 +66,7 @@ extension FeedDetailController {
     private func setupLeftNavItem() {
         let backButton = UIButton(type: .system)
         backButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-        backButton.tintColor = UIColor.white
+        backButton.tintColor = UIColor.scheme.button
         let image = UIImage(named: "back")?.withRenderingMode(.alwaysTemplate)
         backButton.setImage(image, for: .normal)
         backButton.addTarget(self, action: #selector(handleBack), for: .touchUpInside)
@@ -89,9 +89,6 @@ extension FeedDetailController: FeedDetailViewDelegate {
         let previewimageVC = PreviewImageController()
         previewimageVC.previewImage = image
         previewimageVC.modalPresentationStyle = .overFullScreen
-        //let navController = MainNavigationController(rootViewController: previewimageVC)
-        //navController.modalPresentationStyle = .overFullScreen
-        //present(navController, animated: true, completion: nil)
         present(previewimageVC, animated: true, completion: nil)
     }
 }
