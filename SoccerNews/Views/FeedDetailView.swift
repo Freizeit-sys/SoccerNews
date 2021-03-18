@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol FeedDetailViewDelegate: class {
+    func didShowPreviewImage(_ image: UIImage)
+}
+
 class FeedDetailView: UIView {
+    
+    weak var delegate: FeedDetailViewDelegate?
     
     var feed: Article? {
         didSet {
@@ -98,6 +104,7 @@ class FeedDetailView: UIView {
         iv.backgroundColor = .lightGray
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
+        iv.isUserInteractionEnabled = true
         return iv
     }()
     
@@ -109,6 +116,12 @@ class FeedDetailView: UIView {
         label.numberOfLines = .zero
         label.lineBreakMode = .byWordWrapping
         return label
+    }()
+    
+    private let tapGesture: UITapGestureRecognizer = {
+        let tap = UITapGestureRecognizer()
+        tap.cancelsTouchesInView = false
+        return tap
     }()
     
     override init(frame: CGRect) {
@@ -134,6 +147,10 @@ class FeedDetailView: UIView {
         scrollView.addSubview(feedImageView)
         scrollView.addSubview(feedDescriptionLabel)
         
+        feedImageView.addGestureRecognizer(tapGesture)
+        
+        tapGesture.addTarget(self, action: #selector(handleTapGesture))
+        
         feedTitleLabel.anchor(top: scrollView.topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 16, paddingLeft: 16, paddingBottom: 0, paddingRight: 16, width: 0, height: 0)
         
         feedFaviconImageView.anchor(top: feedTitleLabel.bottomAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 16, paddingLeft: 16, paddingBottom: 0, paddingRight: 0, width: 36, height: 36)
@@ -156,5 +173,10 @@ class FeedDetailView: UIView {
         
         guard let date = formatter.date(from: dateString) else { return "Failed to convert date." }
         return date.timeAgo()
+    }
+    
+    @objc private func handleTapGesture() {
+        guard let selectedImage = feedImageView.image else { return }
+        delegate?.didShowPreviewImage(selectedImage)
     }
 }

@@ -24,6 +24,7 @@ class FeedDetailController: UIViewController {
         view.backgroundColor = .secondarySystemBackground
         
         self.v.feed = self.feed
+        self.v.delegate = self
         
         self.setupNavigationItems()
     }
@@ -79,5 +80,18 @@ extension FeedDetailController {
     
     @objc private func handleBack() {
         _ = navigationController?.popViewController(animated: true)
+    }
+}
+
+extension FeedDetailController: FeedDetailViewDelegate {
+    
+    func didShowPreviewImage(_ image: UIImage) {
+        let previewimageVC = PreviewImageController()
+        previewimageVC.previewImage = image
+        previewimageVC.modalPresentationStyle = .overFullScreen
+        //let navController = MainNavigationController(rootViewController: previewimageVC)
+        //navController.modalPresentationStyle = .overFullScreen
+        //present(navController, animated: true, completion: nil)
+        present(previewimageVC, animated: true, completion: nil)
     }
 }

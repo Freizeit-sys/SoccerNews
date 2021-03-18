@@ -19,10 +19,9 @@ class MainNavigationController: UINavigationController {
     private func setupNavigationBar() {
         navigationBar.barTintColor = UIColor.secondarySystemBackground
         navigationBar.isTranslucent = false
-        //self.navigationBarRemoveSeparator()
     }
     
-    private func navigationBarRemoveSeparator() {
+    public func navigationBarRemoveSeparator() {
         navigationBar.shadowImage = UIImage()
         navigationBar.setBackgroundImage(UIImage(), for: .default)
     }
