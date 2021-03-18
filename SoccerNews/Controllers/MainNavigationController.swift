@@ -6,10 +6,24 @@
 //
 
 import UIKit
+import AMScrollingNavbar
 
 class MainNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setupNavigationBar()
+    }
+    
+    private func setupNavigationBar() {
+        navigationBar.barTintColor = UIColor.secondarySystemBackground
+        navigationBar.isTranslucent = false
+        //self.navigationBarRemoveSeparator()
+    }
+    
+    private func navigationBarRemoveSeparator() {
+        navigationBar.shadowImage = UIImage()
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
     }
 }

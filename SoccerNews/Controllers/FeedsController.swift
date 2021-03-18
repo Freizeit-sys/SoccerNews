@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AMScrollingNavbar
 
 class FeedsController: UIViewController {
     
@@ -26,7 +27,6 @@ class FeedsController: UIViewController {
     private var page = 0
     
     //private var articles: [Article] = [];
-    
     private let headerId = "headerId"
     private let topFeedCellId = "topFeedCellId"
     private let cellId = "cellId"
@@ -45,6 +45,22 @@ class FeedsController: UIViewController {
         
         // Fetch news data
         //self.paginateFeeds()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let navigationController = navigationController as? ScrollingNavigationController {
+            navigationController.followScrollView(v.tableView, delay: 0.0)
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        if let navigationController = navigationController as? ScrollingNavigationController {
+            navigationController.stopFollowingScrollView()
+        }
     }
     
     private func paginateFeeds() {
@@ -130,7 +146,7 @@ extension FeedsController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 64
+        return 48
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -20,9 +20,9 @@ class FeedsView: UIView {
         let tv = UITableView(frame: .zero, style: .grouped)
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.backgroundColor = UIColor.secondarySystemBackground
-        tv.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 16))
         tv.tableFooterView = UIView(frame: .zero)
         tv.separatorStyle = .singleLine
+        tv.automaticallyAdjustsScrollIndicatorInsets = false
         return tv
     }()
     
